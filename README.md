@@ -17,6 +17,7 @@ El alcance de la app contiene las sioguientes funcionalidades:
 - Instalación
 1. Fijarse tener instalado jdk 11, gradle incluido, emulador android, luego clonar git clone https://github.com/Luchopicinini/artelab.git en la terminal.
 ------------------------------------------
+*Nota: si la arquitectura y flujo se ve ilegible, ver este archivo en modo edición. Atentamente Jose* 
 
 ARQUITECTURA Y FLUJO:
 ├───main
