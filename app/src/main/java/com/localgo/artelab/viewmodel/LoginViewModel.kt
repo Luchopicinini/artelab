@@ -4,7 +4,7 @@ import android.app.Application//no es activity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.localgo.artelab.data.local.UserSessionManager
-import android.util.Patterns
+import android.util.Patterns.EMAIL_ADDRESS// verificador de correo electronico
 
 //
 import kotlinx.coroutines.flow.MutableStateFlow// vm lo cambia
@@ -38,8 +38,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             _email.value.isEmpty() || _password.value.isEmpty() -> {//email vacio
                 _errorMessage.value = "Completa todos los campos"
             }
-            !android.util.Patterns.EMAIL_ADDRESS.matcher(_email.value).matches() -> {
-                _errorMessage.value = "Correo electrónico inválido"
+            !android.util.Patterns.EMAIL_ADDRESS.matcher(_email.value).matches() -> {//se ocupa el import Android util patterns para que vea el formato del correo
+                _errorMessage.value = "Correo electrónico inválido"//en este caso ocupa un ! por lo que es por si no cumple
             }
 
             else -> {
