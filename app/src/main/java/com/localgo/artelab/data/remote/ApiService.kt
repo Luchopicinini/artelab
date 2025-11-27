@@ -1,11 +1,17 @@
 package com.localgo.artelab.data.remote
 
-import com.localgo.artelab.data.remote.dto.ProductDto
 import retrofit2.http.GET
+
+data class ExternalProductDto(
+    val id: Int,
+    val title: String,
+    val price: Int,
+    val description: String
+)
 
 interface ApiService {
 
-    // API externa
-    @GET("products/1")
-    suspend fun getExternalProduct(): ProductDto
+    // ⭐ TU API REAL EN RENDER
+    @GET("external-product")
+    suspend fun getExternalProduct(): ExternalProductDto
 }
