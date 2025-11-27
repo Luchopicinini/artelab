@@ -1,40 +1,46 @@
 package com.localgo.artelab.ui.navigation
 
-import androidx.compose.runtime.Composable //funciones ui de compose
-import androidx.navigation.compose.NavHost//contenedor de navegación en compose
-import androidx.navigation.compose.composable //declara una pantalla y ruta del navHost
-import androidx.navigation.compose.rememberNavController //crea y recuerda
-import com.localgo.artelab.ui.screens.LoginScreen
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.localgo.artelab.ui.screens.HomeScreen
 import com.localgo.artelab.ui.screens.ProfileScreen
+import com.localgo.artelab.ui.screens.LoginScreen
+import com.localgo.artelab.viewmodel.HomeViewModel
 
 @Composable
-fun AppNavigation() { //funcion de UI que define la navegación
-    val navController = rememberNavController() //crea y recuerda NavController
+fun AppNavigation(navController: NavHostController = rememberNavController()) {
 
-    NavHost(//crea marco que organiza y muestra las pantallas
+    NavHost(
         navController = navController,
         startDestination = "login"
     ) {
-        // pantalla de login  lleva al home
+
+        // LOGIN
         composable("login") {
             LoginScreen(
-                onLoginSuccess = { navController.navigate("home") }
+                onLoginSuccess = {
+                    navController.navigate("home")
+                }
             )
         }
 
-        // pantalla home lleva al perfil
+        // HOME
         composable("home") {
+            val homeViewModel = HomeViewModel()
             HomeScreen(
-                onProfileClick = { navController.navigate("profile") }
+                viewModel = homeViewModel,
+                onProfileClick = {
+                    navController.navigate("profile")
+                }
             )
         }
 
-        // pantalla de perfil al botón para volver
+        // PROFILE
         composable("profile") {
-            ProfileScreen(
-                onBackClick = { navController.popBackStack() }
-            )
+            ProfileScreen()
         }
     }
 }
