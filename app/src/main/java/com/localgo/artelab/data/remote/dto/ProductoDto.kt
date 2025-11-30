@@ -1,10 +1,8 @@
 package com.localgo.artelab.data.remote.dto
 
-data class ProductDto(
+
+data class ProductoDto(
     val id: Int,
-    val title: String,
-    val price: Double,
-    val description: String,
-    val category: String,
-    val image: String
+    val nombre: String,
+    val precio: Int
 )

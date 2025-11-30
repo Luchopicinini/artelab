@@ -41,6 +41,22 @@ android {
 
 dependencies {
 
+    // Testing - JUnit
+    testImplementation("junit:junit:4.13.2")
+
+    // Testing - Coroutines
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // Testing - MockK
+    testImplementation("io.mockk:mockk:1.13.5")
+    androidTestImplementation("io.mockk:mockk-android:1.13.5")
+
+    // Testing - Turbine
+    testImplementation("app.cash.turbine:turbine:1.0.0")
+
+    // Testing - Core Testing
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
     //escribir codigo mas cercano al humano
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
